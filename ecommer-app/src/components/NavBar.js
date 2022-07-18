@@ -2,10 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import CartWidget from './CartWidget';
 
 function NavBar() {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
             <Container>
                 <Navbar.Brand href="#home">MarkTech</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -29,7 +30,7 @@ function NavBar() {
                     <Nav>
                         <Nav.Link href="#deets">Ingresar</Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
-                            Carrito
+                            <CartWidget />
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
