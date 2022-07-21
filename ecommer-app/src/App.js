@@ -8,7 +8,9 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer greeting="Bienvenido a MarkTech" />
+      <div style={{ background: 'rgb(242, 243, 244)', height:'100vh' }}>
+        <ItemListContainer greeting="Bienvenido a MarkTech" />
+      </div>
     </>
   );
 }
