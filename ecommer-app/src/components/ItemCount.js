@@ -31,10 +31,11 @@ function ItemCount({ stock, onAdd }) {
                             Some quick example text to build on the card title and make up the
                             bulk of the card's content.
                         </Card.Text>
-                        <Button style={{ padding: '0px 2px 5px', margin: '5px' }} variant="outline-light" href="#" disabled={stock <= count} onClick={incrementCount}>
+                        <Button style={{ padding: '0px 2px 7px', margin: '5px', fontSize: '20px' }} variant="outline-light" href="#" disabled={stock <= count} onClick={incrementCount}>
                             <GrFormAdd />
-                        </Button>{count}
-                        <Button style={{ padding: '0px 2px 5px', margin: '5px' }} variant="outline-light" type="submit" disabled={count === 0} onClick={decrementCount}>
+                        </Button>
+                        {count}
+                        <Button style={{ padding: '0px 2px 7px', margin: '5px', fontSize: '20px' }} variant="outline-light" type="submit" disabled={count === 0} onClick={decrementCount}>
                             <GrFormSubtract />
                         </Button>{' '}
                     </div>

@@ -15,7 +15,6 @@ function NavBar() {
                         <Nav.Link href="#features">Catálogo</Nav.Link>
                         <Nav.Link href="#pricing">Contacto</Nav.Link>
                         <NavDropdown title="Categorías" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">TELEVISORES</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
                                 NOTEBOOKS
                             </NavDropdown.Item>

@@ -7,8 +7,8 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      <div style={{ background: 'rgb(242, 243, 244)', height:'100vh' }}>
+      <NavBar style={{ position: 'fixed' }} />
+      <div style={{ background: 'rgb(242, 243, 244)', height: '100%' }}>
         <ItemListContainer greeting="Bienvenido a MarkTech" />
       </div>
     </>
