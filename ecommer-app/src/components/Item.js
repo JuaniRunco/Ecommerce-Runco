@@ -41,7 +41,7 @@ const Item = ({ item }) => {
                         </Card.Text>
                         <Button style={{ padding: '0px 2px 7px', margin: '5px', fontSize: '20px' }} variant="outline-light" type="submit" disabled={count === 0} onClick={decrementCount}>
                             <GrFormSubtract />
-                        </Button>{' '}
+                        </Button>
                         {count}
                         <Button style={{ padding: '0px 2px 7px', margin: '5px', fontSize: '20px' }} variant="outline-light" type="submit" disabled={stock <= count} onClick={incrementCount}>
                             <GrFormAdd />
@@ -55,8 +55,8 @@ const Item = ({ item }) => {
                     <Button style={{ borderRadius: '21px' }} variant="outline-primary" as="input" type="button" disabled={stock === 0 || count === 0} onClick={() => onAdd(count)} value="Agregar" />
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                    {stock === 0 ? <><FcCancel style={{ marginBottom: '3px' }} /><span>No hay stock de este producto</span></> :
-                        <><FcOk style={{ marginBottom: '3px' }} /><span>Producto con stock</span></>}
+                    {stock === 0 ? <><FcCancel style={{ marginBottom: '2px' }} /><span>No hay stock de este producto</span></> :
+                        <><FcOk style={{ marginBottom: '2px' }} /><span>Producto con stock</span></>}
                 </div>
             </Card>
         </div>
