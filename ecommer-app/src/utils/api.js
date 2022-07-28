@@ -1,19 +1,15 @@
-import { useState } from "react";
 
 export const getItem = () => {
 
-    const url = './data/items.json';
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [product, setProduct] = useState({});
-
-    fetch(url)
-        .then(response => response.json())
-        .then(response =>
-            setProduct(response.product.find(product => product.idProduct === 1)))
-
-    console.log(product)
-    return product;
+    const url = './data/items.json'
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(fetch(url)
+                .then(response => response.json())
+                .then(
+                    data => {
+                        return data.find((item) => item.id === 1);
+                    }))
+        }, 2000);
+    })
 }
-
-/* setTimeout(() => { */
-/*  }, 2000); */

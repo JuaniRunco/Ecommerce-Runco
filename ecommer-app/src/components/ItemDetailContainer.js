@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
 import { getItem } from "../utils/api";
 import ItemDetail from "./ItemDetail";
+import Spinner from 'react-bootstrap/Spinner';
 
 const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState({});
+    const [product, setProduct] = useState();
+
+    const obteinProduct = async () => {
+        const found = await getItem();
+        setProduct(found)
+    }
 
     useEffect(() => {
 
-        const item = getItem();
-        setItem(item);
+        obteinProduct();
     }, []);
-
-    console.log(item)
 
     return (
         <>
-            <ItemDetail item={item} />
+            {product ? <ItemDetail item={product} /> : <Spinner animation="border" />}
         </>
     );
 }
