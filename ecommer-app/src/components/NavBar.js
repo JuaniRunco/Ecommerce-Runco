@@ -8,6 +8,13 @@ function NavBar() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
             <Container>
+                <Navbar.Brand href="#home" style={{margin:'-15px 0px'}}><img
+                    src="./images/logo.png"
+                    width="90"
+                    height="85"
+                    className="d-inline-block align-top"
+                    alt="MarchTech logo"
+                /></Navbar.Brand>
                 <Navbar.Brand href="#home">MarkTech</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

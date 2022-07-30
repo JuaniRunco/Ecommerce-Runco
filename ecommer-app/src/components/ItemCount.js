@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { GrFormAdd, GrFormSubtract } from "react-icons/gr";
+import { FcOk, FcCancel } from "react-icons/fc";
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 
-function ItemCount({ stock, onAdd }) {
+function ItemCount() {
 
     const [count, setCount] = useState(1);
+    const [stock, setStock] = useState(4);
+
+    const onAdd = (value) => {
+        setStock(Math.max(stock - value, 0));
+    }
 
     useEffect(() => {
 
@@ -21,31 +26,27 @@ function ItemCount({ stock, onAdd }) {
     }
 
     return (
-        <>
-            <Card style={{ width: '18rem', margin: '5rem', paddingBottom: '15px', borderRadius: '10px' }} >
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <div style={{ textAlign: 'center' }}>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
-                        <Button style={{ padding: '0px 2px 7px', margin: '5px', fontSize: '20px' }} variant="outline-light" href="#" disabled={stock <= count} onClick={incrementCount}>
-                            <GrFormAdd />
-                        </Button>
-                        {count}
-                        <Button style={{ padding: '0px 2px 7px', margin: '5px', fontSize: '20px' }} variant="outline-light" type="submit" disabled={count === 0} onClick={decrementCount}>
-                            <GrFormSubtract />
-                        </Button>{' '}
-                    </div>
-                </Card.Body>
-                <div className="btn">
-                    <Button variant="outline-primary" as="input" type="button" disabled={stock === 0 || count === 0} onClick={() => onAdd(count)} value="Agregar al Carrito" />{' '}
-                    {stock === 0 ? <p style={{color : 'red'}}> No hay stock de este producto </p> : ''}
-                </div>
-            </Card>
-        </>
+        <div>
+            <Button style={{ padding: '0px 2px 7px', margin: '5px', fontSize: '20px' }} variant="outline-light" type="submit" disabled={count === 0} onClick={decrementCount}>
+                <GrFormSubtract />
+            </Button>
+            {count}
+            <Button style={{ padding: '0px 2px 7px', margin: '5px', fontSize: '20px' }} variant="outline-light" type="submit" disabled={stock <= count} onClick={incrementCount}>
+                <GrFormAdd />
+            </Button>
+            <br />
+            <div className="btn">
+                <Button variant="outline-primary" as="input" href="#" type="button" value="Ver detalle del producto" />
+            </div>
+            <br />
+            <div className="btn">
+                <Button style={{ borderRadius: '21px' }} variant="outline-primary" as="input" type="button" disabled={stock === 0 || count === 0} onClick={() => onAdd(count)} value="Agregar" />
+            </div>
+            <div style={{ textAlign: 'center' }}>
+                {stock === 0 ? <><FcCancel style={{ marginBottom: '2px' }} /><span>No hay stock de este producto</span></> :
+                    <><FcOk style={{ marginBottom: '2px' }} /><span>Producto con stock</span></>}
+            </div>
+        </div>
     );
 
 }

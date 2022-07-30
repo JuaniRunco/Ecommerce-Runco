@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 import { getItem } from "../utils/api";
 import ItemDetail from "./ItemDetail";
-import Spinner from 'react-bootstrap/Spinner';
+import Loading from "./Loading";
 
 const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState();
 
-    const obteinProduct = async () => {
+    const obtainProduct = async () => {
         const found = await getItem();
         setProduct(found)
     }
 
     useEffect(() => {
 
-        obteinProduct();
+        obtainProduct();
     }, []);
 
     return (
         <>
-            {product ? <ItemDetail item={product} /> : <Spinner animation="border" />}
+            {product ? <ItemDetail item={product} /> : <Loading/>}
         </>
     );
 }
