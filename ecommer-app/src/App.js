@@ -11,7 +11,7 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
-        <div style={{ background: 'rgb(242, 243, 244)', height: '100%' }}>
+        <div style={{ background: 'rgb(242, 243, 244)' }}>
           <Routes>
             <Route path='/' element={<ItemListContainer greeting="Bienvenido a MarkTech" />} />
             <Route path='/category/:categoryId' element={<ItemListContainer greeting="Bienvenido a MarkTech" />} />
