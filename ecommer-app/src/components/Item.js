@@ -1,5 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import ItemCount from "./ItemCount";
+import Button from 'react-bootstrap/Button';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Item = ({ item }) => {
 
@@ -15,6 +17,11 @@ const Item = ({ item }) => {
                     <Card.Text style={{ fontSize: '20px' }}>
                         {item.price}
                     </Card.Text>
+                    <div className="btn">
+                        <LinkContainer to={'/item/' + item.id}>
+                            <Button variant="outline-primary" as="input" type="button" value="Ver detalle del producto" />
+                        </LinkContainer>
+                    </div>
                     <ItemCount />
                 </Card.Body>
             </Card>

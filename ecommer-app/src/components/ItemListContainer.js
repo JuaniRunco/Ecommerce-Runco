@@ -1,30 +1,33 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getCategory } from "../utils/api";
 import ItemList from "./ItemList";
+import Loading from "./Loading";
 
 const ItemListContainer = (props) => {
 
-    const [items, setItems] = useState([]);
-
-    const url = './data/items.json';
+    const { categoryId } = useParams();
+    const [items, setItems] = useState();
 
     useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                setTimeout(() => {
-                    setItems(data);
-                }, 2000);
-            })
-    }, []);
 
-    //console.log(items);
+        setItems(null);
+        obtainProduct();
+    }, [categoryId])
+
+    const obtainProduct = async () => {
+
+        const found = await getCategory(categoryId);
+        setItems(found);
+    }
+
     return (
-        <>
-            <h1 style={{ textAlign: 'center', paddingTop: '20px' }}>
+        <div>
+            <h1 style={{ textAlign: 'center', paddingTop: '40px', paddingBottom: '10px', fontSize: '45px' }}>
                 {props.greeting}
             </h1>
-            <ItemList items={items} />
-        </>
+            {items ? <ItemList items={items} /> : <Loading />}
+        </div>
     );
 }
 

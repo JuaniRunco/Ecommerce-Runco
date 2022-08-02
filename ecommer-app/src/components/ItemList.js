@@ -2,7 +2,7 @@ import Item from "./Item";
 
 const ItemList = ({ items }) => {
     return (
-        <div className="container">
+        <div className="container" style={{ paddingBottom: '20px' }}>
             <div className="row">
                 {
                     items.map((item, i) => (

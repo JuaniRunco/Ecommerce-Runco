@@ -36,15 +36,16 @@ function ItemCount() {
             </Button>
             <br />
             <div className="btn">
-                <Button variant="outline-primary" as="input" href="#" type="button" value="Ver detalle del producto" />
-            </div>
-            <br />
-            <div className="btn">
                 <Button style={{ borderRadius: '21px' }} variant="outline-primary" as="input" type="button" disabled={stock === 0 || count === 0} onClick={() => onAdd(count)} value="Agregar" />
             </div>
             <div style={{ textAlign: 'center' }}>
-                {stock === 0 ? <><FcCancel style={{ marginBottom: '2px' }} /><span>No hay stock de este producto</span></> :
-                    <><FcOk style={{ marginBottom: '2px' }} /><span>Producto con stock</span></>}
+                {stock === 0 ?
+                    <>
+                        <FcCancel style={{ marginBottom: '2px' }} /><span>No hay stock de este producto</span>
+                    </> :
+                    <>
+                        <FcOk style={{ marginBottom: '2px' }} /><span>Producto con stock</span>
+                    </>}
             </div>
         </div>
     );
