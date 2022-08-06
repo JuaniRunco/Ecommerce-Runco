@@ -1,5 +1,4 @@
 import Card from 'react-bootstrap/Card';
-import ItemCount from "./ItemCount";
 import Button from 'react-bootstrap/Button';
 import { LinkContainer } from 'react-router-bootstrap';
 
@@ -22,7 +21,6 @@ const Item = ({ item }) => {
                             <Button variant="outline-primary" as="input" type="button" value="Ver detalle del producto" />
                         </LinkContainer>
                     </div>
-                    <ItemCount />
                 </Card.Body>
             </Card>
         </div>

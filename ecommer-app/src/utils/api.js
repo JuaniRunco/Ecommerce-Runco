@@ -1,13 +1,14 @@
+const url = '../data/items.json'
+
 export const getItem = (id) => {
 
-    const url = '../data/items.json'
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(fetch(url)
                 .then(response => response.json())
                 .then(
                     data => {
-                        return data.find((item) => item.id === id);
+                        return data.find((item) => item.id === parseInt(id));
                     }))
         }, 2000);
     })
@@ -15,7 +16,6 @@ export const getItem = (id) => {
 
 export const getCategory = (idCategory) => {
 
-    const url = '../data/items.json'
     return new Promise((resolve) => {
         if (idCategory) {
             setTimeout(() => {
