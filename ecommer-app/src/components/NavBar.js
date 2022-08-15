@@ -62,9 +62,11 @@ function NavBar() {
                         <Nav.Link href="#deets">
                             Ingresar
                         </Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            <CartWidget />
-                        </Nav.Link>
+                        <LinkContainer to='/cart'>
+                            <Nav.Link>
+                                <CartWidget />
+                            </Nav.Link>
+                        </LinkContainer>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

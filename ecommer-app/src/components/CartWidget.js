@@ -4,12 +4,16 @@ import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
 
-    const valueToShare = useContext(CartContext);
-    console.log("Contenido del carrito: \n", valueToShare.cart);
+    const { cantInCart } = useContext(CartContext);
+
+    if (cantInCart === 0) {
+        return <></>;
+    }
+
     return (
         <>
             <TiShoppingCart style={{ fontSize: '25px', color: 'white' }} />
-            {valueToShare.cantInCart}
+            {cantInCart}
         </>
     );
 }

@@ -10,11 +10,8 @@ const Item = ({ item }) => {
                 <Card.Img variant="top" src={item.pictureUrl} />
                 <Card.Body style={{ textAlign: 'center' }}>
                     <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>
-                        {item.desdescription}
-                    </Card.Text>
                     <Card.Text style={{ fontSize: '20px' }}>
-                        {item.price}
+                        {'$ '}{item.price}
                     </Card.Text>
                     <div className="btn">
                         <LinkContainer to={'/item/' + item.id}>

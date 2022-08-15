@@ -32,7 +32,7 @@ const ItemDetail = ({ item }) => {
                     </h1>
                     <div>
                         <p style={{ fontSize: '40px' }}>
-                            {item.price}
+                            {'$ '}{item.price}
                         </p>
                         <hr />
                         <h3 style={{ fontSize: '40px', paddingTop: '50px' }}>Detalle del Producto</h3>

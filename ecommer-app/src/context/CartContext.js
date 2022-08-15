@@ -4,7 +4,7 @@ export const CartContext = createContext({});
 
 const CartProvider = ({ children }) => {
 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
 
     const addItem = (item, quantity) => {
 
@@ -42,7 +42,7 @@ const CartProvider = ({ children }) => {
     }
 
     const removeItem = (itemId) => {
-        
+
         const cartDraft = [...cart];
         setCart(cartDraft.filter((itemInCart) => itemInCart.id !== itemId));
     }
@@ -51,13 +51,20 @@ const CartProvider = ({ children }) => {
         setCart([]);
     }
 
+    const cantInCart = cart.reduce(
+        (init, item) => init + item.quantity, 0);
+
+    const totalPrice = cart.reduce(
+        (price, item) => price + (item.price * item.quantity), 0);
+
     const valueToShare = {
         cart,
-        cantInCart: cart.length,
+        cantInCart,
         isInCart,
         cleanCart,
         addItem,
-        removeItem
+        removeItem,
+        totalPrice
     };
 
     return (
