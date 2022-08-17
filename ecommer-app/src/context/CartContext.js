@@ -21,14 +21,10 @@ const CartProvider = ({ children }) => {
             cartDraft[productIndex].quantity += quantity;
             //Guardo la lista actualizada
             setCart(cartDraft);
-            console.log("Producto encontrado actualizando lista...");
-            console.log(cartDraft);
         } else {
 
             const cartDraft = [...cart, { ...item, quantity: quantity }]
             setCart(cartDraft);
-            console.log("Producto no encontrado en la lista...");
-            console.log(cartDraft);
         }
     }
 
