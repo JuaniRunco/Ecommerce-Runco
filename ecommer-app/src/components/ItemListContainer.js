@@ -21,7 +21,7 @@ const ItemListContainer = (props) => {
 
     return (
         <div>
-            <h1 style={{ textAlign: 'center', paddingTop: '40px', paddingBottom: '10px', fontSize: '45px' }}>
+            <h1 style={{ textAlign: 'center', paddingTop: '40px', paddingBottom: '10px', fontSize: '45px' , height: '100%' }}>
                 {props.greeting}
             </h1>
             {items ? <ItemList items={items} /> : <Loading />}
