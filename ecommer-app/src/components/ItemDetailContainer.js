@@ -9,13 +9,14 @@ const ItemDetailContainer = () => {
     const { id } = useParams();
     const [product, setProduct] = useState();
 
-    const obtainProduct = async () => {
+    const obtainProduct = async() => {
+
         const found = await getItem(id);
-        setProduct(found)
+        console.log(found);
+        setProduct(found);
     }
 
     useEffect(() => {
-
         obtainProduct();
     }, []);
 

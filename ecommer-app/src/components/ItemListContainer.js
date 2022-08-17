@@ -9,17 +9,15 @@ const ItemListContainer = (props) => {
     const { categoryId } = useParams();
     const [items, setItems] = useState();
 
-    useEffect(() => {
-
-        setItems(null);
-        obtainProduct();
-    }, [categoryId])
-
     const obtainProduct = async () => {
-
         const found = await getCategory(categoryId);
         setItems(found);
     }
+
+    useEffect(() => {
+        setItems(null);
+        obtainProduct();
+    }, [categoryId]);
 
     return (
         <div>
