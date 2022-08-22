@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import CartList from "./CartList";
+import OrderContainerModal from "./OrderContainerModal";
 
 const CartContainer = () => {
 
@@ -9,6 +10,13 @@ const CartContainer = () => {
     return (
         <div>
             <CartList valueToShare={valueToShare} />
+            {valueToShare.cart.length > 0 ?
+                <div className="container">
+                    <OrderContainerModal valueToShare={valueToShare} />
+                </div>
+                :
+                <></>
+            }
         </div>
     );
 }

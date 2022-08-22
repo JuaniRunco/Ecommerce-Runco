@@ -21,9 +21,10 @@ const ItemListContainer = (props) => {
 
     return (
         <div>
-            <h1 style={{ textAlign: 'center', paddingTop: '40px', paddingBottom: '10px', fontSize: '45px' , height: '100%' }}>
+            <h1 style={{ textAlign: 'center', paddingTop: '40px', paddingBottom: '10px', fontSize: '70px' , height: '100%',fontFamily:'Roboto, sans-serif' }}>
                 {props.greeting}
             </h1>
+            <h2 style={{ textAlign: 'center'}} className="text-uppercase">{categoryId}</h2>
             {items ? <ItemList items={items} /> : <Loading />}
         </div>
     );
