@@ -31,11 +31,6 @@ function NavBar() {
                                 Catálogo
                             </Nav.Link>
                         </LinkContainer>
-                        <LinkContainer to='/'>
-                            <Nav.Link>
-                                Contacto
-                            </Nav.Link>
-                        </LinkContainer>
                         <NavDropdown title="Categorías" id="collasible-nav-dropdown">
                             <LinkContainer to='/category/notebook'>
                                 <NavDropdown.Item >
@@ -59,9 +54,6 @@ function NavBar() {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">
-                            Ingresar
-                        </Nav.Link>
                         <LinkContainer to='/cart'>
                             <Nav.Link>
                                 <CartWidget />

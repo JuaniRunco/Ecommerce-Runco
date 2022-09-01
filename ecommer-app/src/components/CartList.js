@@ -34,8 +34,9 @@ const CartList = ({ valueToShare }) => {
                     </div>
                 </div>
                 :
-                <div style={{ textAlign: 'center' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingTop: '100px' }}>
                     <h2>No hay elementos en el carrito</h2>
+                    <br />
                     <LinkContainer to='/' >
                         <Button>Seguir Comprando</Button>
                     </LinkContainer>

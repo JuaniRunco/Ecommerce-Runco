@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <CartProvider>
           <NavBar />
-          <div style={{ background: 'rgb(242, 243, 244)' }}>
+          <div>
             <Routes>
               <Route path='/' element={
                 <ItemListContainer greeting="Bienvenido a MarkTech" />

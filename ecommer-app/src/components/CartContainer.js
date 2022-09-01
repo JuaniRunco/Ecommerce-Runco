@@ -11,7 +11,7 @@ const CartContainer = () => {
         <div>
             <CartList valueToShare={valueToShare} />
             {valueToShare.cart.length > 0 ?
-                <div className="container">
+                <div className="container" style={{ textAlign: 'center', display: 'flex', justifyContent: 'space-evenly', marginTop: '50px', marginBottom: '50px' }}>
                     <OrderContainerModal valueToShare={valueToShare} />
                 </div>
                 :
