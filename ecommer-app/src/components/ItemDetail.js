@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import Button from 'react-bootstrap/Button';
 import { CartContext } from "../context/CartContext";
+import { LinkContainer } from "react-router-bootstrap";
 
 const ItemDetail = ({ item }) => {
 
@@ -42,10 +43,19 @@ const ItemDetail = ({ item }) => {
                     </div>
                     {count === 0 ?
                         <ItemCount item={item} onAdd={onAdd} /> :
-                        <Button onClick={endBuy}
-                            as="input"
-                            type="button"
-                            value="Terminar Compra" />}
+                        <div style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: '50px' }}>
+                            <LinkContainer to='/'>
+                                <Button
+                                    as="input"
+                                    type="button"
+                                    value="Volver" />
+                            </LinkContainer>
+                            <Button
+                                onClick={endBuy}
+                                as="input"
+                                type="button"
+                                value="Terminar Compra" />
+                        </div>}
                 </div>
             </div>
         </div>
