@@ -4,11 +4,12 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import Swal from 'sweetalert2'
+import 'animate.css';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const OrderContainerModal = ({ valueToShare }) => {
 
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -22,7 +23,10 @@ const OrderContainerModal = ({ valueToShare }) => {
 
     const captureInputs = (e) => {
         const { name, value } = e.target;
-        setUser({ ...user, [name]: value })
+        setUser({
+            ...user,
+            [name]: value
+        })
     }
 
     const sendOrder = () => {
@@ -45,15 +49,60 @@ const OrderContainerModal = ({ valueToShare }) => {
     const idAlert = (id) => {
         Swal.fire({
             title: "Gracias por tu compra!",
-            html: "Este es tu id de seguimiento: <b>" + id + "</b>",
-            icon: 'success'
+            html: "Este es tu número de seguimiento: <b>" + id + "</b>",
+            icon: 'success',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
         })
     }
 
+    const confirmCleanCart = () => {
+        Swal.fire({
+            title: 'Esta seguro de vaciar el carrito?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, estoy seguro'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Eliminado!',
+                    'Su carrito fue vaciado.',
+                    'success'
+                )
+                valueToShare.cleanCart();
+            }
+        })
+    }
+
+    const handleKeyPress = (event) => {
+        if (!/[0-9]/.test(event.key)) {
+            event.preventDefault();
+        }
+    }
+
+    const expressions = {
+        registerName: /^[a-zA-Z0-9 _-]{4,25}$/
+    };
+
+    // Agregar en los warnings: eslint-disable-next-line
     return (
         <>
+            <LinkContainer to='/'>
+                <Button variant="primary">
+                    Seguir Comprando
+                </Button>
+            </LinkContainer>
             <Button variant="primary" onClick={handleShow}>
                 Finalizar Compra
+            </Button>
+            <Button variant="primary" onClick={confirmCleanCart}>
+                Vaciar Carrito
             </Button>
 
             <Modal show={show} onHide={handleClose}>
@@ -69,6 +118,14 @@ const OrderContainerModal = ({ valueToShare }) => {
                                 onChange={captureInputs}
                                 value={user.userName}
                             />
+                            {!expressions.registerName.test(user.userName)
+                                &&
+                                user.userName !== ''
+                                &&
+                                <p style={{ color: 'red' }}>
+                                    Ingrese su nombre
+                                </p>
+                            }
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Ingresa tu email</Form.Label>
@@ -83,6 +140,8 @@ const OrderContainerModal = ({ valueToShare }) => {
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Ingresa tu celular</Form.Label>
                             <Form.Control
+                                maxLength={10}
+                                onKeyPress={(event) => { handleKeyPress(event) }}
                                 name='phone'
                                 onChange={captureInputs}
                                 value={user.phone} />
@@ -90,7 +149,7 @@ const OrderContainerModal = ({ valueToShare }) => {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={sendOrder}>
+                    <Button variant="primary" disabled={user.userName === "" || user.email === "" || user.phone === ""} onClick={sendOrder}>
                         Generar Orden
                     </Button>
                 </Modal.Footer>
