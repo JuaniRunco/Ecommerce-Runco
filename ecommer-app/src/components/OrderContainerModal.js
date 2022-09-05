@@ -87,10 +87,9 @@ const OrderContainerModal = ({ valueToShare }) => {
     }
 
     const expressions = {
-        registerName: /^[a-zA-Z0-9 _-]{4,25}$/
+        registerName: /^[a-zA-Z0-9 _-]{4,16}$/
     };
 
-    // Agregar en los warnings: eslint-disable-next-line
     return (
         <>
             <LinkContainer to='/'>
@@ -122,8 +121,8 @@ const OrderContainerModal = ({ valueToShare }) => {
                                 &&
                                 user.userName !== ''
                                 &&
-                                <p style={{ color: 'red' }}>
-                                    Ingrese su nombre
+                                <p style={{ color: 'red', fontSize:'12px'}}>
+                                    El nombre debe ser mayor a 4 y menor a 16
                                 </p>
                             }
                         </Form.Group>
