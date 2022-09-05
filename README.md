@@ -27,4 +27,4 @@ Las principales tecnologías usadas son:
 
 ## Demo
 
-![Demo](https://media.giphy.com/media/kNh2DQKKzkmrkYOMY8/giphy.gif)
+![Demo](https://media.giphy.com/media/jdeaXTjERiZGcseg4o/giphy.gif)
